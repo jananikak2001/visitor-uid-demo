@@ -41,14 +41,16 @@ if (typeof gtag === "function") {
  
   // Send custom event
   gtag('event', 'page_view_with_uid', {
-    visitor_uid: visitorUID
+    visitor_uid: visitorUID,
+    debug_mode: true
   });
  
   // Attach as user property
   gtag('config', 'G-6L6S0DHGEE', {
     user_properties: {
       visitor_uid: visitorUID
-    }
+    },
+    debug_mode: true
   });
  
 }
