@@ -9,7 +9,7 @@ function getOrCreateVisitorUID() {
  
   if (!uid) {
     uid = crypto.randomUUID();
-    document.cookie = `${cookieName}=${uid}; path=/; max-age=31536000; SameSite=Lax; Secure';
+    document.cookie = `${cookieName}=${uid}; path=/; max-age=31536000; SameSite=Lax';
   }
  
   return uid;
