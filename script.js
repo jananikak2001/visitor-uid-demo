@@ -94,6 +94,15 @@ function trackPage(pageName) {
 // 6. Simulate Signup
 // ===============================
 function simulateSignup() {
+  let existingUserId = localStorage.getItem("linked_user_id");
+ 
+  // ✅ If already signed up, reuse same ID
+  if (existingUserId) {
+    alert("User already signed up: " + existingUserId);
+    return;
+  }
+ 
+  // ✅ Create only once
   const userId = "user_" + Math.floor(Math.random() * 100000);
  
   localStorage.setItem("linked_user_id", userId);
@@ -106,7 +115,6 @@ function simulateSignup() {
       debug_mode: true
     });
  
-    // Update GA with user_id AFTER signup
     gtag('config', 'G-6L6S0DHGEE', {
       user_id: userId,
       user_properties: {
@@ -116,5 +124,5 @@ function simulateSignup() {
     });
   }
  
-  alert("Signup simulated. User ID: " + userId);
+  alert("Signup successful. User ID: " + userId);
 }
